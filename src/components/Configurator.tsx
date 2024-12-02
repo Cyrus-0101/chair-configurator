@@ -1,110 +1,53 @@
+import React from 'react';
 import { useCustomization } from "../hooks/useCustomization"
 import { chairColors, cushionColors } from "../types/colors";
+import ConfigItem from './ConfigItem';
+import ConfigSection from './ConfigSection';
 
-const Configurator = () => {
+const Configurator: React.FC = () => {
   const { material, setMaterial, legs, setLegs, chairColor, setChairColor, cushionColor, setCushionColor } = useCustomization();
 
   return (
     <div className="configurator">
+      <ConfigSection title="Chair Material">
+        <ConfigItem isActive={material === "leather"} onClick={() => setMaterial('leather')} label="Leather" />
+        <ConfigItem isActive={material === "fabric"} onClick={() => setMaterial('fabric')} label="Fabric" />
+        <ConfigItem isActive={material === "padded"} onClick={() => setMaterial('padded')} label="Padded" />
+        <ConfigItem isActive={material === "medieval"} onClick={() => setMaterial('medieval')} label="Medieval" />
+      </ConfigSection>
 
-        <div className="configurator__section">
-            <div className="configurator__section__title">
-                Chair Material
-            </div>
-            <div className="configurator__section__values">
-                <div className={`item ${material === "leather" ? "item--active" : ""}`}
-                    onClick={() => setMaterial('leather')}
-                >
-                    <div className="item__label">
-                        Leather
-                    </div>
-                </div>
-                <div className={`item ${material === "fabric" ? "item--active" : ""}`} 
-                    onClick={() => setMaterial('fabric')}>
-                    <div className="item__label">
-                        Fabric
-                    </div>
-                </div>
-                <div className={`item ${material === "padded" ? "item--active" : ""}`} 
-                    onClick={() => setMaterial('padded')}>
-                    <div className="item__label">
-                        Padded
-                    </div>
-                </div>
-                <div className={`item ${material === "medieval" ? "item--active" : ""}`} 
-                    onClick={() => setMaterial('medieval')}>
-                    <div className="item__label">
-                        Medieval
-                    </div>
-                </div>
-            </div>
-        </div>
+      <ConfigSection title="Legs">
+        <ConfigItem isActive={legs === 1} onClick={() => setLegs(1)} label="Design" />
+        <ConfigItem isActive={legs === 2} onClick={() => setLegs(2)} label="Classic" />
+      </ConfigSection>
 
-        <div className="configurator__section">
-            <div className="configurator__section__title">
-                Legs
-            </div>
-            <div className="configurator__section__values">
-                <div className={`item ${legs === 1 ? "item--active" : ""}`}
-                    onClick={() => setLegs(1)}
-                >
-                    <div className="item__label">
-                        Design
-                    </div>
-                </div>
-                <div className={`item ${legs === 2 ? "item--active" : ""}`} 
-                    onClick={() => setLegs(2)}>
-                    <div className="item__label">
-                        Classic
-                    </div>
-                </div>
-            </div>
-        </div>
+      <ConfigSection title="Chair Color">
+        {chairColors.map((item, index) => (
+          <ConfigItem
+            key={index}
+            isActive={item.color === chairColor.color}
+            onClick={() => setChairColor(item)}
+            label={item.name}
+            color={item.color}
+          />
+        ))}
+      </ConfigSection>
 
-        <div className="configurator__section">
-        <div className="configurator__section__title">
-          Chair Color
-        </div>
-        <div className="configurator__section__values">
-            {chairColors.map((item, index) => (
-                <div
-                    key={index}
-                    className={`item ${item.color === chairColor.color ? "item--active" : ""}`} 
-                    onClick={() => setChairColor(item)}
-                >
-                    <div className="item__dot" style={{ backgroundColor: item.color}}>
-                        <div className="item__label">
-                            {item.name}
-                        </div>
-                    </div>
-                </div>
-            ))}
-            </div>
-        </div>
-
-        <div className="configurator__section">
-            <div className="configurator__section__title">
-                Cushion Color
-            </div>
-            <div className="configurator__section__values">
-            {cushionColors.map((item, index) => (
-                <div
-                    key={index}
-                    className={`item ${ item.color === cushionColor.color ? "item--active" : "" }`}
-                    onClick={() => setCushionColor(item)}
-                >
-                    <div className="item__dot" style={{ backgroundColor: item.color}}>
-
-                        <div className="item__label">
-                            {item.name}
-                        </div>
-                    </div>
-                </div>
-            ))}
-            </div>
-        </div>
+      <ConfigSection title="Cushion Color">
+        {cushionColors.map((item, index) => (
+          <ConfigItem
+            key={index}
+            isActive={item.color === cushionColor.color}
+            onClick={() => setCushionColor(item)}
+            label={item.name}
+            color={item.color}
+          />
+        ))}
+      </ConfigSection>
     </div>
   )
 }
+
+
 
 export default Configurator
