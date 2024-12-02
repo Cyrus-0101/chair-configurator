@@ -20,6 +20,8 @@ canvas {
 
 .configurator {
   position: fixed;
+  top: 0px;
+  margin-top: 5vh;
   right: 24px;
   width: 320px;
   bottom: 25vh;
