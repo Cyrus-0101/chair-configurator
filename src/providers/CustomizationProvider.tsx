@@ -1,5 +1,5 @@
 import { ReactNode, useState } from 'react'
-import { CustomizationContext } from '../contexts/CustomizationContext'
+import { Color, CustomizationContext, Legs, Material } from '../contexts/CustomizationContext'
 import { chairColors, cushionColors } from '../types/colors'
 
 type Props = {
@@ -7,10 +7,10 @@ type Props = {
 }
 
 export const CustomizationProvider = ({ children }: Props) => {
-  const [material, setMaterial] = useState('leather');
-  const [legs, setLegs] = useState(1);
-  const [chairColor, setChairColor] = useState(chairColors[0]);
-  const [cushionColor, setCushionColor] = useState(cushionColors[0]);
+  const [material, setMaterial] = useState<Material>('leather');
+  const [legs, setLegs] = useState<Legs>(1);
+  const [chairColor, setChairColor] = useState<Color>(chairColors[0]);
+  const [cushionColor, setCushionColor] = useState<Color>(cushionColors[0]);
   
   
   return (

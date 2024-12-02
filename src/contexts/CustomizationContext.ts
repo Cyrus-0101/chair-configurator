@@ -1,26 +1,26 @@
-import { createContext } from 'react'
-import { ChairColor, chairColors, CushionColor, cushionColors } from '../types/colors';
+import { createContext } from "react";
+// import { chairColors, cushionColors } from "../types/colors";
 
-type CustomizationContextType = {
-  material: string;
-  setMaterial: (material: string) => void;
+export type Material = "leather" | "fabric" | "padded" | "medieval";
+
+export type Legs = 1 | 2;
+
+export interface Color {
+  name: string;
+  color: string;
+}
+
+export interface CustomizationContextType {
+  material: Material;
+  setMaterial: (material: Material) => void;
   legs: number;
-  setLegs: (legs: number) => void;
-  chairColor: ChairColor;
-  setChairColor: (color: ChairColor) => void;
-  cushionColor: CushionColor;
-  setCushionColor: (color: CushionColor) => void;
-  
-};
+  setLegs: (legs: Legs) => void;
+  chairColor: Color;
+  setChairColor: (color: Color) => void;
+  cushionColor: Color;
+  setCushionColor: (color: Color) => void;
+}
 
-export const CustomizationContext = createContext<CustomizationContextType>({
-  material: 'leather',
-  setMaterial: () => {},
-  legs: 1,
-  setLegs: () => {},
-  chairColor: chairColors[1],
-  setChairColor: () => {},
-  cushionColor: cushionColors[1],
-  setCushionColor: () => {}
-});
-
+export const CustomizationContext = createContext<
+  CustomizationContextType | undefined
+>(undefined);
