@@ -3,6 +3,10 @@ import { useCustomization } from "../hooks/useCustomization"
 import { chairColors, cushionColors } from "../types/colors";
 import ConfigItem from './ConfigItem';
 import ConfigSection from './ConfigSection';
+import Leather from '/textures/leather/Leather_008_Normal.jpg'
+import Fabric from '/textures/fabric/Fabric_Knitted_006_normal.jpg'
+import Padded from '/textures/leather/padded/Leather_Padded_001_normal.jpg'
+import Medieval from '/textures/leather/medieval/Leather_Armor_003_normal.png'
 
 const Configurator: React.FC = () => {
   const { material, setMaterial, legs, setLegs, chairColor, setChairColor, cushionColor, setCushionColor } = useCustomization();
@@ -10,10 +14,10 @@ const Configurator: React.FC = () => {
   return (
     <div className="configurator">
       <ConfigSection title="Chair Material">
-        <ConfigItem isActive={material === "leather"} onClick={() => setMaterial('leather')} label="Leather" />
-        <ConfigItem isActive={material === "fabric"} onClick={() => setMaterial('fabric')} label="Fabric" />
-        <ConfigItem isActive={material === "padded"} onClick={() => setMaterial('padded')} label="Padded" />
-        <ConfigItem isActive={material === "medieval"} onClick={() => setMaterial('medieval')} label="Medieval" />
+        <ConfigItem isActive={material === "leather"} onClick={() => setMaterial('leather')} label="Leather" image={Leather} />
+        <ConfigItem isActive={material === "fabric"} onClick={() => setMaterial('fabric')} label="Fabric" image={Fabric} />
+        <ConfigItem isActive={material === "padded"} onClick={() => setMaterial('padded')} label="Padded" image={Padded} />
+        <ConfigItem isActive={material === "medieval"} onClick={() => setMaterial('medieval')} label="Medieval" image={Medieval} />
       </ConfigSection>
 
       <ConfigSection title="Legs">
