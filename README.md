@@ -1,4 +1,10 @@
-# React + TypeScript + Vite
+# Chair Configurator
+
+This is a Chair Configurator, customize your chair! We use React Fiber, Three.js, Drei and base CSS styles to achieve the result. This is the first of many.
+
+The site is live on: https://cyrus-0101.github.io/chair-configurator
+
+More docs coming up:
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
