@@ -11,7 +11,7 @@ function App() {
       <CustomizationProvider>
         <div className='app'>
           <div className="chair-container">
-            <Canvas className='canvas'>
+            <Canvas className='canvas' style={{ touchAction: 'none'}}>
               <color attach="background" args={["#213547"]} />
               <Experience />
             </Canvas>
