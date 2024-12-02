@@ -12,6 +12,12 @@
   user-select: none; /* Non-prefixed version, currently ssupported by Chrome, Edge, Opera and Firefox */
 }
 
+canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
 .configurator {
   position: fixed;
   right: 24px;
