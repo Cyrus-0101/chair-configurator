@@ -4,7 +4,6 @@ import { chairColors, cushionColors } from "../types/colors";
 const Configurator = () => {
   const { material, setMaterial, legs, setLegs, chairColor, setChairColor, cushionColor, setCushionColor } = useCustomization();
 
-  console.log("Chair color, ", chairColor)
   return (
     <div className="configurator">
 
