@@ -7,17 +7,18 @@ import { CustomizationProvider } from './providers/CustomizationProvider'
 function App() {
 
   return (
-    <>
+    <div className='app'>
       <CustomizationProvider>
-        <div className='app'>
+        <div className='chair-container'>
           <Canvas>
             <color attach="background" args={["#213547"]} />
             <Experience />
           </Canvas>
           <Configurator />
         </div>
+
       </CustomizationProvider>
-    </>
+    </div>
   )
 }
 

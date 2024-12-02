@@ -10,23 +10,23 @@ export type CushionColor = {
 
 export const chairColors: ChairColor[] = [
   {
-    color: "#683434",
+    color: "#964B00",
     name: "brown",
   },
   {
-    color: "#1a5e1a",
+    color: "#00FF00",
     name: "green",
   },
   {
-    color: "#659994",
+    color: "#3480eb",
     name: "blue",
   },
   {
-    color: "#996599",
+    color: "#E0B0FF",
     name: "mauve",
   },
   {
-    color: "#ffa500",
+    color: "#FFA500",
     name: "orange",
   },
   {
@@ -37,27 +37,27 @@ export const chairColors: ChairColor[] = [
 
 export const cushionColors: CushionColor[] = [
   {
-    color: "#683434",
+    color: "#964B00",
     name: "brown",
   },
   {
-    color: "#1a5e1a",
+    color: "#00FF00",
     name: "green",
   },
   {
-    color: "#659994",
+    color: "#3480eb",
     name: "blue",
   },
   {
-    color: "#996599",
+    color: "#E0B0FF",
     name: "mauve",
   },
   {
-    color: "#ffa500",
+    color: "#FFA500",
     name: "orange",
   },
   {
-    color: "#555558",
+    color: "#808080",
     name: "gray",
   },
 ]

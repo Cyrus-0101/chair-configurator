@@ -31,6 +31,12 @@ const Configurator = () => {
                         Padded
                     </div>
                 </div>
+                <div className={`item ${material === "medieval" ? "item--active" : ""}`} 
+                    onClick={() => setMaterial('medieval')}>
+                    <div className="item__label">
+                        Medieval
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -88,6 +94,7 @@ const Configurator = () => {
                     onClick={() => setCushionColor(item)}
                 >
                     <div className="item__dot" style={{ backgroundColor: item.color}}>
+
                         <div className="item__label">
                             {item.name}
                         </div>
