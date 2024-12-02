@@ -13,7 +13,6 @@ const ConfigItem: React.FC<ConfigItemProps> = ({
   color,
   image
 }) => {
-  console.log(image)
   return (
     <div className={`item ${isActive ? "item--active" : ""}`} onClick={onClick}>
       {color && <div className="item__dot" style={{ backgroundColor: color }} />}
