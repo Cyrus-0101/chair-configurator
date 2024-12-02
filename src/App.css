@@ -97,16 +97,17 @@ canvas {
   .app {
     display: flex;
     flex-direction: column;
-    height: auto;
+    height: 100vh;
   }
 
   .configurator {
     position: relative;
     right: auto;
+    left: auto;
     width: 100%;
+    margin-top: 0;
     bottom: auto;
     padding: 6px;
-    
     box-sizing: border-box;
     background-color: bisque;
   }
