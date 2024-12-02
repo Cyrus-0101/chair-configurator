@@ -36,7 +36,6 @@ const Chair = (props: JSX.IntrinsicElements["group"]) => {
     aoMap: "./textures/leather/Leather_008_Ambient Occlusion.jpg",
   });
 
-
   leatherTextureProps.map.repeat.set(2, 2);
   leatherTextureProps.normalMap.repeat.set(2, 2);
   leatherTextureProps.roughnessMap.repeat.set(2, 2);
@@ -52,14 +51,13 @@ const Chair = (props: JSX.IntrinsicElements["group"]) => {
     leatherTextureProps.aoMap.wrapT =
       THREE.RepeatWrapping;
 
-  
   const fabricTextureProps = useTexture({
     map: "./textures/fabric/Fabric_Knitted_006_basecolor.jpg",
     normalMap: "./textures/fabric/Fabric_Knitted_006_normal.jpg",
     roughnessMap: "./textures/fabric/Fabric_Knitted_006_roughness.jpg",
     aoMap: "./textures/fabric/Fabric_Knitted_006_ambientOcclusion.jpg",
   });
-    
+
   fabricTextureProps.map.repeat.set(2, 2);
   fabricTextureProps.normalMap.repeat.set(2, 2);
   fabricTextureProps.roughnessMap.repeat.set(2, 2);
@@ -98,25 +96,58 @@ const Chair = (props: JSX.IntrinsicElements["group"]) => {
     paddedTextureProps.aoMap.wrapT =
       THREE.RepeatWrapping;
 
+  const medievalTextureProps = useTexture({
+    map: "./textures/leather/medieval/Leather_Armor_003_basecolor.png",
+    // displacementMap: './textures/leather/Leather_008_Height.png',
+    normalMap: "./textures/leather/medieval/Leather_Armor_003_normal.png",
+    roughnessMap: "./textures/leather/medieval/Leather_Armor_003_roughness.png",
+    aoMap: "./textures/leather/medieval/Leather_Armor_003_ambientOcclusion.png",
+  });
+
+  medievalTextureProps.map.repeat.set(2, 2);
+  medievalTextureProps.normalMap.repeat.set(2, 2);
+  medievalTextureProps.roughnessMap.repeat.set(2, 2);
+  medievalTextureProps.aoMap.repeat.set(2, 2);
+
+  medievalTextureProps.map.wrapS =
+    medievalTextureProps.map.wrapT =
+    medievalTextureProps.normalMap.wrapS =
+    medievalTextureProps.normalMap.wrapT =
+    medievalTextureProps.roughnessMap.wrapS =
+    medievalTextureProps.roughnessMap.wrapT =
+    medievalTextureProps.aoMap.wrapS =
+    medievalTextureProps.aoMap.wrapT =
+      THREE.RepeatWrapping;
+
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.Chair.geometry}>
-        <meshStandardMaterial 
-          {...(material === 'fabric' ? fabricTextureProps : (material === 'padded' ? paddedTextureProps : leatherTextureProps))} color={chairColor.color} />
+      <mesh geometry={nodes.Chair.geometry} castShadow>
+        <meshStandardMaterial
+          {...(material === "fabric"
+            ? fabricTextureProps
+            : material === "padded"
+            ? paddedTextureProps
+            : material === "medieval"
+            ? medievalTextureProps
+            : leatherTextureProps)}
+          color={chairColor.color}
+        />
+      </mesh>
+      <mesh geometry={nodes.Cushion.geometry} position={[0, 0.064, 0.045]}>
+        <meshStandardMaterial
+          {...fabricTextureProps}
+          color={cushionColor.color}
+        />
       </mesh>
       <mesh
-        geometry={nodes.Cushion.geometry}
-        position={[0, 0.064, 0.045]}
-        
-      >
-        <meshStandardMaterial {...fabricTextureProps} color={cushionColor.color} />
-      </mesh>
-      <mesh geometry={nodes.Legs1.geometry} material={materials.Legs} visible={legs === 1} />
+        geometry={nodes.Legs1.geometry}
+        material={materials.Legs}
+        visible={legs === 1}
+      />
       <mesh
         geometry={nodes.Legs2.geometry}
         material={materials.Legs}
         visible={legs === 2}
-        
       />
     </group>
   );
