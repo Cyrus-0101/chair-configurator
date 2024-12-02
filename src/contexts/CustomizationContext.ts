@@ -13,7 +13,7 @@ export interface Color {
 export interface CustomizationContextType {
   material: Material;
   setMaterial: (material: Material) => void;
-  legs: number;
+  legs: Legs;
   setLegs: (legs: Legs) => void;
   chairColor: Color;
   setChairColor: (color: Color) => void;
