@@ -3,16 +3,20 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://cyrus-0101.github.io/chair-configurator",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
   "dependencies": {
     "@react-three/drei": "^9.119.0",
     "@react-three/fiber": "^8.17.10",
     "@types/three": "^0.170.0",
+    "gh-pages": "^6.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "three": "^0.171.0"
